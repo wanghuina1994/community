@@ -13,14 +13,13 @@ import org.springframework.web.bind.annotation.RequestParam;
 public class AuthorizeController {
     @Autowired
     private GitHubProvider GitHubProvider;
-
+    //常量配置在文件中
     @Value("${github.client.id}")
     private String clientId;
     @Value("${github.client.secret}")
     private String clientSecret;
     @Value("${github.client.uri}")
     private String clientUri;
-
     @GetMapping("/callback")
     public String callback(@RequestParam(name="code") String code,
                            @RequestParam(name="state") String state){
