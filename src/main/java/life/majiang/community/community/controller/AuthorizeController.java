@@ -11,13 +11,12 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import javax.print.attribute.standard.PresentationDirection;
 import javax.servlet.http.HttpServletRequest;
 import java.util.UUID;
 
 @Controller
 public class AuthorizeController {
-    @Autowired
+    @Autowired(required = false)
     private UserMapper userMapper;
     @Autowired
     private GitHubProvider GitHubProvider;
@@ -59,5 +58,9 @@ public class AuthorizeController {
         }
         return "redirect:/";
 
+    }
+    @GetMapping("/lists")
+    public void lists(){
+       System.out.println("22222");
     }
 }
